@@ -28,7 +28,7 @@ app.post("/register", (req, res) => {
             res.json("Already have an account")
         } else {
             RegisterModel.create({name: name, email: email, password: password})
-            .then(result => res.json("Account created"))
+            .then(result => res.json(result))
             .catch(err => res.json(err))
         }
     }).catch(err => res.json(err))
