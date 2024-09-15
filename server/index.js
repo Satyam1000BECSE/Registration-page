@@ -5,10 +5,16 @@ const RegisterModel = require('./models/Register')
 
 
 const app = express()
+app.use(cors(
+    {
+        origin: ["https://.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use(express.json())
-app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/employee');
+mongoose.connect('mongodb+srv://Satyammourya:Satyam@123@cluster0.a0tfq.mongodb.net/employee?retryWrites=true&w=majority&appName=Cluster0');
 
 app.get("/", (req, res) =>{
     res.json("Hello");
